@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 0 0% 100%;
+    --bg-secondary: 240 5% 96%;
+    --surface: 240 5% 99%;
+    --text: 240 10% 6%;
+    --text-secondary: 240 5% 26%;
+    --text-muted: 240 4% 40%;
+    --border: 240 6% 88%;
+    --accent: 245 80% 52%;
+    --accent-hover: 245 80% 45%;
+    --success: 142 72% 28%;
+    --warning: 32 92% 36%;
+    --error: 0 72% 46%;
+
+    --radius: 0.75rem;
+    --max-width: 72rem;
+    --section-y: 5rem;
+
+    /* Family names come from the @fontsource-variable packages imported in layout.tsx */
+    --font-inter: "Inter Variable";
+    --font-fraunces: "Fraunces Variable";
+    --font-jetbrains: "JetBrains Mono Variable";
+
+    --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display-weight: 600;
+    --display-tracking: -0.025em;
+  }
+
+  .dark {
+    --bg: 240 10% 5%;
+    --bg-secondary: 240 6% 9%;
+    --surface: 240 6% 11%;
+    --text: 240 5% 95%;
+    --text-secondary: 240 5% 74%;
+    --text-muted: 240 5% 62%;
+    --border: 240 4% 20%;
+    --accent: 245 90% 72%;
+    --accent-hover: 245 90% 80%;
+    --success: 142 60% 52%;
+    --warning: 38 92% 58%;
+    --error: 0 84% 68%;
+  }
+
+  /* ---------- Presets ---------- */
+  [data-preset="editorial"] {
+    --font-display: var(--font-fraunces), Georgia, serif;
+    --radius: 0.25rem;
+    --max-width: 76rem;
+    --section-y: 7rem;
+    --display-weight: 500;
+    --display-tracking: -0.035em;
+  }
+  [data-preset="minimal"] {
+    --radius: 0.5rem;
+    --max-width: 66rem;
+    --section-y: 4rem;
+    --display-weight: 600;
+    --display-tracking: -0.02em;
+  }
+  [data-preset="technical"] {
+    --font-display: var(--font-jetbrains), ui-monospace, monospace;
+    --radius: 0.125rem;
+    --max-width: 74rem;
+    --section-y: 4.5rem;
+    --display-weight: 700;
+    --display-tracking: -0.04em;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    background-color: hsl(var(--bg));
+    color: hsl(var(--text));
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: hsl(var(--accent) / 0.22);
+    color: hsl(var(--text));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-content {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-content {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section-y {
+    padding-block: calc(var(--section-y) * 0.7);
+  }
+  @media (min-width: 768px) {
+    .section-y {
+      padding-block: var(--section-y);
+    }
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--display-tracking);
+    line-height: 1.05;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: hsl(var(--text-muted));
+  }
+
+  .chip {
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    color: hsl(var(--text-secondary));
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--radius);
+    padding: 0.55rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 150ms, color 150ms, border-color 150ms;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: hsl(var(--accent));
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: hsl(var(--accent-hover));
+  }
+  .dark .btn-primary {
+    color: hsl(240 10% 5%);
+  }
+  .btn-secondary {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--text));
+  }
+  .btn-secondary:hover {
+    background: hsl(var(--bg-secondary));
+  }
+  .btn-ghost {
+    border: 1px solid transparent;
+    color: hsl(var(--text-secondary));
+  }
+  .btn-ghost:hover {
+    color: hsl(var(--text));
+  }
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .input {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    color: hsl(var(--text));
+  }
+  .input:focus {
+    outline: none;
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 0 3px hsl(var(--accent) / 0.18);
+  }
+  .input[aria-invalid="true"] {
+    border-color: hsl(var(--error));
+  }
+
+  .prose-content {
+    max-width: 68ch;
+    line-height: 1.75;
+    color: hsl(var(--text-secondary));
+  }
+  .prose-content > * + * {
+    margin-top: 1.1em;
+  }
+  .prose-content h2 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    font-size: 1.5rem;
+    margin-top: 2em;
+    color: hsl(var(--text));
+    letter-spacing: var(--display-tracking);
+  }
+  .prose-content h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    font-size: 1.2rem;
+    margin-top: 1.6em;
+    color: hsl(var(--text));
+  }
+  .prose-content code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    background: hsl(var(--bg-secondary));
+    border: 1px solid hsl(var(--border));
+  }
+  .prose-content strong {
+    color: hsl(var(--text));
+    font-weight: 600;
+  }
+  .prose-content ul {
+    padding-inline-start: 1.25em;
+    list-style: disc;
+  }
+  .prose-content ol {
+    padding-inline-start: 1.25em;
+    list-style: decimal;
+  }
+  .prose-content li + li {
+    margin-top: 0.4em;
+  }
+  .prose-content blockquote {
+    border-inline-start: 3px solid hsl(var(--accent));
+    padding-inline-start: 1rem;
+    font-style: italic;
+  }
+  .prose-content a {
+    color: hsl(var(--accent));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+/* ---------- Preset-specific details (not just colours) ---------- */
+
+/* Technical: faint grid backdrop + code-style labels */
+[data-preset="technical"] body {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+}
+[data-preset="technical"] .eyebrow::before {
+  content: "// ";
+  color: hsl(var(--accent));
+}
+[data-preset="technical"] .chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+/* Editorial: oversized italic accent on display text, airy eyebrows */
+[data-preset="editorial"] .eyebrow {
+  letter-spacing: 0.22em;
+}
+[data-preset="editorial"] .display em {
+  font-style: italic;
+  color: hsl(var(--accent));
+}
+
+/* Minimal: quiet, no decoration */
+[data-preset="minimal"] .eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: none;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+}

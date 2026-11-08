@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Portico placeholder cover">
+  <rect width="1280" height="720" fill="#1b1b1e"/>
+  <rect x="120" y="120" width="1040" height="80" fill="#303034"/>
+  <rect x="120" y="220" width="1040" height="380" fill="#26262a"/>
+  <rect x="200" y="300" width="240" height="220" fill="#3f3f45"/>
+  <rect x="480" y="300" width="240" height="220" fill="#3f3f45"/>
+  <rect x="760" y="300" width="240" height="220" fill="#3f3f45"/>
+  <text x="80" y="660" fill="#a8a8b3" font-family="monospace" font-size="28" letter-spacing="6">PORTICO / MIGRATION</text>
+</svg>

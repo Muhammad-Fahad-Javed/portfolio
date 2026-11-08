@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Atlas Analytics placeholder cover">
+  <rect width="1280" height="720" fill="#1f2547"/>
+  <circle cx="1040" cy="160" r="180" fill="#4c59c9" opacity=".35"/>
+  <circle cx="1180" cy="420" r="90" fill="#8b93ff" opacity=".5"/>
+  <text x="80" y="640" fill="#c9ceee" font-family="monospace" font-size="28" letter-spacing="6">ATLAS / ANALYTICS</text>
+</svg>
