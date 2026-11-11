@@ -10,8 +10,8 @@ import { formatDate } from "@/lib/utils";
 import { articleJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 
-interface Params {
-  params: { slug: string };
+interface PageProps {
+  params: Promise<{ slug: string }>;
 }
 
 // Unknown slugs return a server-rendered 404 (the global not-found page).
@@ -21,8 +21,9 @@ export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Params) {
-  const post = getPost(params.slug);
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) return buildMetadata({ title: "Article not found" });
   return buildMetadata({
     title: post.title,
@@ -34,8 +35,9 @@ export function generateMetadata({ params }: Params) {
   });
 }
 
-export default function BlogPostPage({ params }: Params) {
-  const post = getPost(params.slug);
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) notFound();
 
   const ordered = sortedPosts();

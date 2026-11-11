@@ -1,6 +1,6 @@
 # FRAME: Premium Developer Portfolio System
 
-A customizable developer portfolio template built with **Next.js 14 (App Router)**, **TypeScript** and **Tailwind CSS**. One content system, three visual presets, light and dark themes, a blog, project case studies, a command palette and a contact form with an honest fallback.
+A customizable developer portfolio template built with **Next.js 15 (App Router)**, **TypeScript** and **Tailwind CSS**. One content system, three visual presets, light and dark themes, a blog, project case studies, a command palette and a contact form with an honest fallback.
 
 > All names, projects, articles, testimonials and employers in the demo are **fictional placeholder content**. Replace them with your own before publishing.
 
@@ -21,7 +21,7 @@ A customizable developer portfolio template built with **Next.js 14 (App Router)
 
 ## Tech stack
 
-Next.js 14, React 18, TypeScript (strict), Tailwind CSS 3, `next-themes`, `lucide-react`, `zod`, `clsx`, `tailwind-merge`, `@fontsource-variable/*`. No animation library and no CMS; all motion is CSS.
+Next.js 15, React 18, TypeScript (strict), Tailwind CSS 3, `next-themes`, `lucide-react`, `zod`, `clsx`, `tailwind-merge`, `@fontsource-variable/*`. No animation library and no CMS; all motion is CSS.
 
 ## Quick start
 
@@ -56,4 +56,4 @@ Full guides: `CUSTOMIZATION.md`, `DOCUMENTATION.md`, `DEPLOYMENT.md`, `CONTACT-S
 
 ## License
 
-`LICENSE.md` is a placeholder. Choose and verify a license before distributing.
+Licensed under the commercial single-end-product license. See `LICENSE.md` and `LICENSE_REVIEW.md` for terms.

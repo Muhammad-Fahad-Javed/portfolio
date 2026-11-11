@@ -25,7 +25,7 @@ export function buildMetadata({
     : siteConfig.seo.defaultTitle;
   const desc = description ?? siteConfig.seo.description;
   const url = `${siteConfig.url}${path === "/" ? "" : path}`;
-  const img = `${siteConfig.url}${image ?? "/images/og-default.svg"}`;
+  const img = `${siteConfig.url}${image ?? "/images/og-default.png"}`;
 
   return {
     title: fullTitle,

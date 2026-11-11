@@ -8,8 +8,8 @@ import { Section } from "@/components/section";
 import { JsonLd } from "@/components/json-ld";
 import { ProjectCard } from "@/components/project-card";
 
-interface Params {
-  params: { slug: string };
+interface PageProps {
+  params: Promise<{ slug: string }>;
 }
 
 // Unknown slugs return a server-rendered 404 (the global not-found page).
@@ -19,8 +19,9 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Params) {
-  const project = getProject(params.slug);
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const project = getProject(slug);
   if (!project) return buildMetadata({ title: "Project not found" });
   return buildMetadata({
     title: project.title,
@@ -54,8 +55,9 @@ function ListBlock({ title, items }: { title: string; items?: string[] }) {
   );
 }
 
-export default function ProjectPage({ params }: Params) {
-  const project = getProject(params.slug);
+export default async function ProjectPage({ params }: PageProps) {
+  const { slug } = await params;
+  const project = getProject(slug);
   if (!project) notFound();
 
   const idx = projects.findIndex((p) => p.slug === project.slug);
